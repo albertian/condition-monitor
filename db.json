@@ -1,0 +1,75 @@
+{
+  "subsystems": [
+    { "id": 0, "name": "Motor"},
+    { "id": 1, "name": "Sensors"},
+    { "id": 2, "name": "Chassis"},
+    { "id": 3, "name": "Steering"},
+    { "id": 4, "name": "Connections"},
+    { "id": 5, "name": "Transmission"},
+    { "id": 6, "name": "Body"},
+    { "id": 7, "name": "Processors"}
+  ],
+  "conditions": {
+    "status": "ok",
+    "data": {
+      "begin_ts": 1540425600,
+      "end_ts": 1540511999,
+      "components": [
+        {
+          "title": "Motor temperature",
+          "subsystem_id": 0,
+          "states": [
+            {
+              "level": "Fail",
+              "appear_ts": 1540425600,
+              "descriptions": "Motor temperature is higher than normal"
+            },
+            {
+              "level": "Ok",
+              "appear_ts": 1540456901
+            }
+          ]
+        },
+        {
+          "title": "Main steering",
+          "subsystem_id": 3,
+          "states": [
+            {
+              "level": "Ok",
+              "appear_ts": 1540456901
+            }
+          ]
+        },
+        {
+          "title": "Radio antenna",
+          "subsystem_id": 4,
+          "states": [
+            {
+              "level": "Ok",
+              "appear_ts": 1540456901
+            }
+          ]
+        },
+        {
+          "title": "Ethical block",
+          "subsystem_id": 7,
+          "states": [
+            {
+              "level": "Ok",
+              "appear_ts": 1540425600
+            },
+            {
+              "level": "Fail",
+              "appear_ts": 1540475000,
+              "descriptions": "Error while human life worth calculation"
+            },
+            {
+              "level": "Ok",
+              "appear_ts": 1540504999
+            }
+          ]
+        },
+      ]
+    }
+  }
+}
