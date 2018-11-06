@@ -1,0 +1,94 @@
+.graphic {
+    position: relative;
+}
+.graphic__stripes {
+    position: absolute;
+    background-image: repeating-linear-gradient(to right, transparent, transparent 19px, #414141 19px, #414141 20px);
+    margin-left: 255px;
+    width: -webkit-fill-available;
+    height: 100%;
+}
+.graphic__label {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    width: 205px;
+    color: #ddac8f;
+    display: block;
+    background-color: #2B2B2B;
+}
+.item {
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    cursor: pointer;
+}
+.item:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+.label {
+    width: 255px;
+    background: linear-gradient(180deg, 
+        transparent,
+        transparent 14px,
+        #757575 15px, 
+        #757575 15px,
+        transparent 16px
+    );
+    float: left;
+}
+.label__more {
+    width: 40px;
+    display: inline-block;
+}
+.label__text {
+    display: inline-block;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #2B2B2B;
+}
+.item__graph {
+    height: inherit;
+    margin-left: 255px;
+    position: relative;
+}
+.item__clear {
+    clear: both;
+}
+.item__graph-part {
+    float: left;
+    height: inherit;
+}
+.red-line {
+    background: linear-gradient(180deg, 
+        transparent,
+        transparent 13px,
+        #e24c65 16px, 
+        #e24c65 16px,
+        transparent 18px
+    );
+}
+.green-line {
+    background: linear-gradient(180deg, 
+        transparent,
+        transparent 13px,
+        #5db38a 16px, 
+        #5db38a 16px,
+        transparent 18px
+    );
+}
+.straightLine {
+    position: absolute;
+    background-color: #959595;
+    pointer-events: none;
+}
+.description {
+    color: #b5b5b5;
+    position: absolute;
+    margin-left: 255px;
+    z-index: 1;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 1em;
+}

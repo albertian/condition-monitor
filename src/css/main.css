@@ -1,0 +1,14 @@
+#content {
+    min-height: 834px;
+    margin: 0;
+    background-color: #2B2B2B;
+    padding-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    margin: 0;
+}
+main {
+    min-height: 700px;
+    box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.5);
+}
