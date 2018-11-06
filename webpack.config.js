@@ -1,13 +1,13 @@
 module.exports = {
     entry: __dirname + '/src/jsx/index.jsx',
     output: {
-        path: __dirname,
-        publicPath: '/',
+        path: __dirname + '/build',
+        publicPath: '/build',
         filename: 'bundle.js'
     },
     devServer: {
         contentBase:__dirname + '/',
-        publicPath: '/'
+        publicPath: '/build'
     },
     devtool: '#sourcemap',
     module: {
