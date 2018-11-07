@@ -1,14 +1,4 @@
 {
-  "subsystems": [
-    { "id": 0, "name": "Motor"},
-    { "id": 1, "name": "Sensors"},
-    { "id": 2, "name": "Chassis"},
-    { "id": 3, "name": "Steering"},
-    { "id": 4, "name": "Connections"},
-    { "id": 5, "name": "Transmission"},
-    { "id": 6, "name": "Body"},
-    { "id": 7, "name": "Processors"}
-  ],
   "conditions": {
     "status": "ok",
     "data": {
@@ -16,6 +6,7 @@
       "end_ts": 1540511999,
       "components": [
         {
+          "id": 0,
           "title": "Motor temperature",
           "subsystem_id": 0,
           "states": [
@@ -31,6 +22,7 @@
           ]
         },
         {
+          "id": 1,
           "title": "Main steering",
           "subsystem_id": 3,
           "states": [
@@ -41,6 +33,7 @@
           ]
         },
         {
+          "id": 2,
           "title": "Radio antenna",
           "subsystem_id": 4,
           "states": [
@@ -51,6 +44,7 @@
           ]
         },
         {
+          "id": 3,
           "title": "Ethical block",
           "subsystem_id": 7,
           "states": [
