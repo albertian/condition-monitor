@@ -31,22 +31,22 @@ function switchFilter(id, filters) {
  * @returns {Array.<Object>} - changed array
  */
 function setPosition(id1, id2, positions) {
-    const item1 = positions.find(item => item.id === id1),
+    const fromPosition = positions.find(item => item.id === id1).position,
         destinationPosition = positions.find(item => item.id === id2).position,
-        directionUp = item1.position > destinationPosition;
+        directionUp = fromPosition > destinationPosition;
     if (directionUp) {
         positions.forEach(obj => {
-            if (obj.position >= destinationPosition && obj.position < item1.position) {
+            if (obj.position >= destinationPosition && obj.position < fromPosition) {
                 obj.position++;
-            } else if (obj.position === item1.position) {
+            } else if (obj.position === fromPosition) {
                 obj.position = destinationPosition;
             }
         });
     } else {
         positions.forEach(obj => {
-            if (obj.position <= destinationPosition && obj.position > item1.position) {
+            if (obj.position <= destinationPosition && obj.position > fromPosition) {
                 obj.position--;
-            } else if (obj.position === item1.position) {
+            } else if (obj.position === fromPosition) {
                 obj.position = destinationPosition;
             }
         });
