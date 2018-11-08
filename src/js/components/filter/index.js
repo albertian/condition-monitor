@@ -1,6 +1,6 @@
 import React from 'react';
-import FilterButtons from '../containers/filter-buttons.jsx';
-import '../../css/filter.css';
+import FilterButtons from '../../containers/filter-buttons';
+import './style.css';
 
 class Filter extends React.PureComponent {
     render() {

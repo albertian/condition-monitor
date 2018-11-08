@@ -1,0 +1,19 @@
+.graphic {
+    position: relative;
+}
+.graphic__stripes {
+    position: absolute;
+    background-image: repeating-linear-gradient(to right, transparent, transparent 19px, #414141 19px, #414141 20px);
+    margin-left: 255px;
+    width: -webkit-fill-available;
+    height: 100%;
+}
+.graphic__label {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    width: 205px;
+    color: #ddac8f;
+    display: block;
+    background-color: #2B2B2B;
+}

@@ -26,3 +26,5 @@ export const SUBSYSTEMS = [{
 export const COMPONENTS_CONDITIONS_URL = 'https://my-json-server.typicode.com/albertian/condition-monitor/conditions';
 
 export const LABELS_WIDTH_PX = 255;
+
+export const MAX_COMPONENTS_NUMBER = 500;

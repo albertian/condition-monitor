@@ -1,11 +1,12 @@
 import React from 'react';
-import { fetchSubsystems, switchVisibilityFilter } from '../actions/action-creator';
+import { fetchVisibilityFilters, switchVisibilityFilter } from '../../actions/action-creator';
 import { connect } from 'react-redux';
-import { SUBSYSTEMS } from '../constants';
+import { SUBSYSTEMS } from '../../constants';
+import './style.css';
 
 class FilterButtons extends React.Component {
     componentDidMount() {
-        this.props.fetchSubsystems();
+        this.props.fetchVisibilityFilters();
     }
     render() {
         var listItems = SUBSYSTEMS.map((item, i) => {
@@ -35,8 +36,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchSubsystems: () => {
-            dispatch(fetchSubsystems());
+        fetchVisibilityFilters: () => {
+            dispatch(fetchVisibilityFilters());
         },
         switchVisibilityFilter: id => {
             dispatch(switchVisibilityFilter(id))

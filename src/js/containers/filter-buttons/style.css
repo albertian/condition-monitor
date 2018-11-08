@@ -1,0 +1,21 @@
+.filters {
+    margin-left: 40px;
+}
+.filters__button {
+    margin-right: 5px;
+    border: 2px #e24c65 solid;
+    height: 26px;
+    line-height: 26px;
+    background-color: white;
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.filters__button:hover {
+    background-color: #f0f0f0;
+}
+
+.background-grey {
+    background-color: #b5b5b5;
+}

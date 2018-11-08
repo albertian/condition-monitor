@@ -1,8 +1,4 @@
-import {
-    FETCH_CONDITIONS,
-    HIDE_COMPONENT,
-    SET_POSITION
-} from "../actions/action-types";
+import { FETCH_CONDITIONS } from "../actions/action-types";
 
 const initialState = {};
 

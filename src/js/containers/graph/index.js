@@ -1,10 +1,10 @@
 import React from 'react';
-import GraphicItem from '../components/graphic-item.jsx';
-import { fetchConditions } from '../actions/action-creator';
-import '../../css/graph.css';
+import GraphicItem from '../../components/graphic-item';
+import { fetchConditions, fetchPositions, setPosition } from '../../actions/action-creator';
+import './style.css';
 
 import { connect } from 'react-redux';
-import { LABELS_WIDTH_PX } from '../constants/index.js';
+import { LABELS_WIDTH_PX } from '../../constants/index.js';
 
 class Graph extends React.PureComponent {
     constructor(props) {
@@ -18,9 +18,10 @@ class Graph extends React.PureComponent {
     }
     componentDidMount() {
         this.props.fetchConditions();
+        this.props.fetchPositions();
         this.straightLine = this.setupTimeLineStrip();
     }
-    
+
     /**
      * Install the cursor attached vertical line
      * @returns {HTMLElement}
@@ -44,7 +45,7 @@ class Graph extends React.PureComponent {
             duration = end_ts - begin_ts,
             parts = [];
         let lastPeriod = end_ts,
-            issue = false,
+            type = 'other',
             j = states.length;
         while (j--) {
             //addition validation
@@ -56,7 +57,7 @@ class Graph extends React.PureComponent {
                 });
                 lastPeriod = states[j].appear_ts;
                 if (states[j].level === 'Fail') {
-                    issue = true;
+                    type = 'issue';
                 }
             };
         }
@@ -68,7 +69,7 @@ class Graph extends React.PureComponent {
             });
         }
         parts.reverse();
-        return { parts, issue };
+        return { parts, type };
     }
     /**
      * Get description to status according to selected time
@@ -96,20 +97,36 @@ class Graph extends React.PureComponent {
         this.currentTimeStrip.style.transform = transform;
 
         const relativeWidth = (event.pageX - LABELS_WIDTH_PX) / (this.refs.current.clientWidth - LABELS_WIDTH_PX);
-        this.setState({posX: event.pageX, relativeWidth});
+        this.setState({ posX: event.pageX, relativeWidth });
     }
     render() {
         const issues = [],
             others = [];
         if (this.props.components) {
+            this.props.components.sort((item1, item2) => {
+                const positionItem1 = this.props.positions.find(item => item.id === item1.id),
+                    positionItem2 = this.props.positions.find(item => item.id === item2.id);
+                if (positionItem1 !== undefined && positionItem2 !== undefined) {
+                    return positionItem1.position - positionItem2.position;
+                }
+                return;
+            });
             this.props.components.forEach((component, index) => {
                 const isVisible = !this.props.subSystemVisibility.includes(component.subsystem_id);
                 if (!isVisible) {
                     return;
                 }
                 const graphParts = this.getGraphParts(component.states),
-                    item = <GraphicItem key={index} parts={graphParts.parts} label={component.title} posX={this.state.posX} description={this.getDescription(graphParts.parts)}/>;
-                if (graphParts.issue) {
+                    item = <GraphicItem
+                        key={index}
+                        id={component.id}
+                        parts={graphParts.parts}
+                        label={component.title}
+                        posX={this.state.posX}
+                        description={this.getDescription(graphParts.parts)}
+                        type={graphParts.type}
+                        setPosition={this.props.setPosition} />;
+                if (graphParts.type === 'issue') {
                     issues.push(item);
                 } else {
                     others.push(item);
@@ -130,6 +147,7 @@ function mapStateToProps(state) {
     return {
         subSystemVisibility: state.subSystemVisibility,
         components: state.componentsConditions.components,
+        positions: state.componentsPositions,
         begin_ts: state.componentsConditions.begin_ts,
         end_ts: state.componentsConditions.end_ts
     }
@@ -138,7 +156,13 @@ function mapStateToProps(state) {
 const mapDispatchToProps = dispatch => {
     return {
         fetchConditions: () => {
-            dispatch(fetchConditions())
+            dispatch(fetchConditions());
+        },
+        fetchPositions: () => {
+            dispatch(fetchPositions());
+        },
+        setPosition: (id1, id2) => {
+            dispatch(setPosition(id1, id2));
         }
     }
 }

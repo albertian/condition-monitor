@@ -1,6 +1,7 @@
 import React from 'react';
-import Filter from './filter.jsx';
-import Graph from '../containers/graph.jsx';
+import Filter from './filter';
+import Graph from '../containers/graph';
+import style from './style.css';
 
 class App extends React.PureComponent {
     render() {
