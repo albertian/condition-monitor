@@ -1,5 +1,7 @@
 This is a web service which provide fetching data and presenting data about abstract components during the time.
 
+![alt text](https://pp.userapi.com/c849028/v849028133/104517/lr11ROxjj8o.jpg)
+
 It's just MVP especially in UI side, so it's ok thet some styles look a bit odd.
 
 The main purpose is to provide example of my code style so not all choosen approaches are extremely effective: e.x. it's not best idea to use redux in small project with such minimalistic structure of store, and for UI graphic part it's more easy to use graphic-oriented libraries like D3 instead of manual manipulating with DOM and styles.
